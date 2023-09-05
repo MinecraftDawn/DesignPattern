@@ -2,6 +2,7 @@
 using Singleton;
 using Factory;
 using Strategy;
+using Decorator;
 
 Console.WriteLine(123);
 Singleton.SignletonLazySafe.getInstance();
@@ -18,3 +19,9 @@ foreach (Strategy.Item item in items) {
     Console.WriteLine(item.Name);
 }
 
+Decorator.ClearIce ice = new Decorator.ClearIce();
+Console.WriteLine(ice.getDescription());
+Decorator.Chocolate chocolate = new Decorator.Chocolate(ice);
+Console.WriteLine(chocolate.getDescription());
+Decorator.Mango mango = new Decorator.Mango(chocolate);
+Console.WriteLine(mango.getDescription());
