@@ -25,3 +25,13 @@ Decorator.Chocolate chocolate = new Decorator.Chocolate(ice);
 Console.WriteLine(chocolate.getDescription());
 Decorator.Mango mango = new Decorator.Mango(chocolate);
 Console.WriteLine(mango.getDescription());
+
+
+Observer.UI ui = new Observer.UI();
+Observer.Button button = new Observer.Button();
+Observer.Textarea textarea = new Observer.Textarea();
+
+ui.add(button);
+ui.add(textarea);
+
+ui.update();
