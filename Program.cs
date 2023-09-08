@@ -3,8 +3,8 @@ using Singleton;
 using Factory;
 using Strategy;
 using Decorator;
+using Command;
 
-Console.WriteLine(123);
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
 Console.WriteLine((new Factory.FireChickenFactory()).Create().Name);
@@ -35,3 +35,17 @@ ui.add(button);
 ui.add(textarea);
 
 ui.update();
+
+
+Command.MealReceiver mealReceiver = new Command.MealReceiver();
+Command.DrinkReceiver drinkReceiver = new Command.DrinkReceiver();
+
+Command.MealOrder mealOrder = new MealOrder(mealReceiver);
+Command.DrinkOrder drinkOrder = new DrinkOrder(drinkReceiver);
+
+Command.Invoker invoker = new Command.Invoker();
+
+invoker.addOrder(mealOrder);
+invoker.addOrder(drinkOrder);
+
+invoker.sendAllOrder();
