@@ -4,6 +4,8 @@ using Factory;
 using Strategy;
 using Decorator;
 using Command;
+using Adapter;
+using System.Data.Common;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -49,3 +51,7 @@ invoker.addOrder(mealOrder);
 invoker.addOrder(drinkOrder);
 
 invoker.sendAllOrder();
+
+
+Adapter.ElectricCar electricCar = new Adapter.ElectricBike(new Adapter.MyBike());
+electricCar.powerDriven();
