@@ -6,6 +6,7 @@ using Decorator;
 using Command;
 using Adapter;
 using Facade;
+using Template;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -60,3 +61,9 @@ electricCar.powerDriven();
 Facade.Facade facade = new Facade.Facade();
 
 facade.play();
+
+Template.JsonReport jsonReport = new JsonReport("Eric", "24");
+Console.WriteLine(jsonReport.getReport());
+
+Template.HtmlReport htmlReport = new HtmlReport("Eric", "24");
+Console.WriteLine(htmlReport.getReport());
