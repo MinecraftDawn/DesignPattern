@@ -1,4 +1,5 @@
-﻿namespace Facade {
+﻿// MVC 也是使用Facade pattern
+namespace Facade {
 
     abstract class Electronic {
         protected bool power = false;
