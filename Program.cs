@@ -5,7 +5,7 @@ using Strategy;
 using Decorator;
 using Command;
 using Adapter;
-using System.Data.Common;
+using Facade;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -55,3 +55,8 @@ invoker.sendAllOrder();
 
 Adapter.ElectricCar electricCar = new Adapter.ElectricBike(new Adapter.MyBike());
 electricCar.powerDriven();
+
+
+Facade.Facade facade = new Facade.Facade();
+
+facade.play();
