@@ -7,6 +7,7 @@ using Command;
 using Adapter;
 using Facade;
 using Template;
+using Composite;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -67,3 +68,24 @@ Console.WriteLine(jsonReport.getReport());
 
 Template.HtmlReport htmlReport = new HtmlReport("Eric", "24");
 Console.WriteLine(htmlReport.getReport());
+
+
+Composite.MenuBar menuBar = new MenuBar("主選單");
+Composite.SubMenu fileMenu = new SubMenu("檔案");
+Composite.MenuBtn newFileBtn = new MenuBtn("新增");
+fileMenu.add(newFileBtn);
+
+Composite.SubMenu editMenu = new SubMenu("編輯");
+Composite.MenuBtn undoBtn = new MenuBtn("復原");
+editMenu.add(undoBtn);
+
+Composite.SubMenu viewMenu = new SubMenu("檢視");
+Composite.MenuBtn toolboxBtn = new MenuBtn("工具箱");
+viewMenu.add(toolboxBtn);
+
+menuBar.add(fileMenu);
+menuBar.add(editMenu);
+menuBar.add(viewMenu);
+
+
+menuBar.inflate(0);
