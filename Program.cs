@@ -8,6 +8,7 @@ using Adapter;
 using Facade;
 using Template;
 using Composite;
+using State;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -87,5 +88,16 @@ menuBar.add(fileMenu);
 menuBar.add(editMenu);
 menuBar.add(viewMenu);
 
-
 menuBar.inflate(0);
+
+
+State.Phone phone = new State.Phone();
+phone.clickHomeBtn();
+
+State.LockState lockState = new LockState(phone);
+phone.ChangeState(lockState);
+phone.clickHomeBtn();
+
+State.LessPowerState lessPowerState = new LessPowerState(phone);
+phone.ChangeState(lessPowerState);
+phone.clickHomeBtn();
