@@ -9,6 +9,7 @@ using Facade;
 using Template;
 using Composite;
 using State;
+using Proxy;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -101,3 +102,11 @@ phone.clickHomeBtn();
 State.LessPowerState lessPowerState = new LessPowerState(phone);
 phone.ChangeState(lessPowerState);
 phone.clickHomeBtn();
+
+Proxy.DB db = new Proxy.DB();
+Proxy.DBProxy dbProxy = new Proxy.DBProxy(db);
+
+dbProxy.setName("1+1=2");
+Console.WriteLine(dbProxy.getName());
+dbProxy.setName("1+1 is 2");
+Console.WriteLine(dbProxy.getName());
