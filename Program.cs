@@ -11,6 +11,7 @@ using Composite;
 using State;
 using Proxy;
 using Iterator;
+using Builder;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -124,3 +125,8 @@ IIterator<string> it = datas.getIterator();
 while (it.hasNext()) {
     Console.WriteLine(it.next());
 }
+
+
+Builder.Director director = new Director(new ComputerBuilder());
+AbsComputer computer = director.buildComputer();
+computer.printInfo();
