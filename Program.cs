@@ -10,6 +10,7 @@ using Template;
 using Composite;
 using State;
 using Proxy;
+using Iterator;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -110,3 +111,16 @@ dbProxy.setName("1+1=2");
 Console.WriteLine(dbProxy.getName());
 dbProxy.setName("1+1 is 2");
 Console.WriteLine(dbProxy.getName());
+
+
+Iterator.MyList<string> datas = new MyList<string>();
+
+for (int i = 0;i < 10; i++) {
+    datas.add("Data: " + i);
+}
+
+IIterator<string> it = datas.getIterator();
+
+while (it.hasNext()) {
+    Console.WriteLine(it.next());
+}
