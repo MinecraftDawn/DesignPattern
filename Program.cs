@@ -12,6 +12,7 @@ using State;
 using Proxy;
 using Iterator;
 using Builder;
+using ChainOfResponsibillity;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -130,3 +131,14 @@ while (it.hasNext()) {
 Builder.Director director = new Director(new ComputerBuilder());
 AbsComputer computer = director.buildComputer();
 computer.printInfo();
+
+AbsLogger errorLogger = new ErrorLogger(AbsLogger.ERROR);
+AbsLogger fileLogger = new FileLogger(AbsLogger.DEBUG);
+AbsLogger consoleLogger = new ConsoleLogger(AbsLogger.INFO);
+
+errorLogger.setNextLogger(fileLogger);
+fileLogger.setNextLogger(consoleLogger);
+
+errorLogger.log(AbsLogger.INFO, "INFO Message");
+errorLogger.log(AbsLogger.DEBUG, "DEBUG Message");
+errorLogger.log(AbsLogger.ERROR, "ERRO Message");
