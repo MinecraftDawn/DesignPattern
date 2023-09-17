@@ -13,6 +13,7 @@ using Proxy;
 using Iterator;
 using Builder;
 using ChainOfResponsibillity;
+using Interpreter;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -142,3 +143,7 @@ fileLogger.setNextLogger(consoleLogger);
 errorLogger.log(AbsLogger.INFO, "INFO Message");
 errorLogger.log(AbsLogger.DEBUG, "DEBUG Message");
 errorLogger.log(AbsLogger.ERROR, "ERRO Message");
+
+Context c1 = new Context("SELECT *;");
+Context c2 = new Context("SELECT");
+Console.WriteLine((new SQLExpression()).interpret(c1,c2));
