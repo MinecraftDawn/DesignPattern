@@ -15,6 +15,7 @@ using Builder;
 using ChainOfResponsibillity;
 using Interpreter;
 using Mediator;
+using Prototype;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -162,3 +163,9 @@ mediator.joinChat(user3);
 user1.send(user2, "Hi");
 user1.send(user3, "Hi");
 user1.sendAll("Hello");
+
+Prototype.Robot robot = new Robot("Robot-001", 100);
+Robot cloneRobot = robot.colne();
+
+robot.showInfo();
+cloneRobot.showInfo();
