@@ -14,6 +14,7 @@ using Iterator;
 using Builder;
 using ChainOfResponsibillity;
 using Interpreter;
+using Mediator;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -147,3 +148,17 @@ errorLogger.log(AbsLogger.ERROR, "ERRO Message");
 Context c1 = new Context("SELECT *;");
 Context c2 = new Context("SELECT");
 Console.WriteLine((new SQLExpression()).interpret(c1,c2));
+
+MessageMediator mediator = new MessageMediator();
+
+User user1 = new User(mediator, "user1");
+User user2 = new User(mediator, "user2");
+User user3 = new User(mediator, "user3");
+
+mediator.joinChat(user1);
+mediator.joinChat(user2);
+mediator.joinChat(user3);
+
+user1.send(user2, "Hi");
+user1.send(user3, "Hi");
+user1.sendAll("Hello");
