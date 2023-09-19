@@ -16,6 +16,7 @@ using ChainOfResponsibillity;
 using Interpreter;
 using Mediator;
 using Prototype;
+using Bridge;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -169,3 +170,12 @@ Robot cloneRobot = robot.colne();
 
 robot.showInfo();
 cloneRobot.showInfo();
+
+
+Color orange = new Orange();
+Color black = new Black();
+UBike uBike = new UBike(orange);
+Bridge.MyBike myBike = new Bridge.MyBike(black);
+
+Console.WriteLine(uBike.getName());
+Console.WriteLine(myBike.getName());
