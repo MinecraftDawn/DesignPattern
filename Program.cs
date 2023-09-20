@@ -17,6 +17,7 @@ using Interpreter;
 using Mediator;
 using Prototype;
 using Bridge;
+using Memento;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -179,3 +180,19 @@ Bridge.MyBike myBike = new Bridge.MyBike(black);
 
 Console.WriteLine(uBike.getName());
 Console.WriteLine(myBike.getName());
+
+
+Originator origin = new Originator();
+origin.hp = 10;
+origin.mp = 20;
+origin.atk = 30;
+origin.def = 40;
+
+MementoCateTaker mementoCateTaker = new MementoCateTaker();
+mementoCateTaker.saveGame(origin.getStatus());
+
+origin.hp = 0;
+
+origin.loadStatus(mementoCateTaker.getSave());
+
+Console.WriteLine(origin.hp);
