@@ -18,6 +18,7 @@ using Mediator;
 using Prototype;
 using Bridge;
 using Memento;
+using Flyweight;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -196,3 +197,14 @@ origin.hp = 0;
 origin.loadStatus(mementoCateTaker.getSave());
 
 Console.WriteLine(origin.hp);
+
+
+Projectile projectile1 = new Projectile("small", 0.1f);
+Projectile projectile2 = new Projectile("small", 0.2f);
+Projectile projectile3 = new Projectile("small", 0.3f);
+Projectile projectile4 = new Projectile("big", 0.3f);
+
+Console.WriteLine(projectile1.getName());
+Console.WriteLine(projectile2.getName());
+Console.WriteLine(projectile3.getName());
+Console.WriteLine(projectile4.getName());
