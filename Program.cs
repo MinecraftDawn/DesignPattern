@@ -1,6 +1,5 @@
 ﻿using System;
 using Singleton;
-using Factory;
 using Strategy;
 using Decorator;
 using Command;
@@ -18,11 +17,10 @@ using Mediator;
 using Prototype;
 using Bridge;
 using Memento;
-using Flyweight;
-using Visitor;
+using DesignPattern.Factory;
 
 Singleton.SignletonLazySafe.getInstance();
-Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
+Console.WriteLine(SimpleFactory.Create("薯條").Name);
 Console.WriteLine((new Factory.FireChickenFactory()).Create().Name);
 List<Strategy.Item> items  = new List<Strategy.Item>();
 items.Add(new Strategy.Item(0, "A"));
@@ -198,23 +196,3 @@ origin.hp = 0;
 origin.loadStatus(mementoCateTaker.getSave());
 
 Console.WriteLine(origin.hp);
-
-
-Projectile projectile1 = new Projectile("small", 0.1f);
-Projectile projectile2 = new Projectile("small", 0.2f);
-Projectile projectile3 = new Projectile("small", 0.3f);
-Projectile projectile4 = new Projectile("big", 0.3f);
-
-Console.WriteLine(projectile1.getName());
-Console.WriteLine(projectile2.getName());
-Console.WriteLine(projectile3.getName());
-Console.WriteLine(projectile4.getName());
-
-Visitor.Car car =new Visitor.Car();
-Visitor.Bike bike = new Visitor.Bike();
-Visitor.MoveableGroup moveables = new MoveableGroup();
-moveables.add(car);
-moveables.add(bike);
-
-Visitor.VisitorMove visitorMove = new VisitorMove();
-moveables.displayAll(visitorMove);
