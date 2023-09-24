@@ -19,6 +19,7 @@ using Prototype;
 using Bridge;
 using Memento;
 using Flyweight;
+using Visitor;
 
 Singleton.SignletonLazySafe.getInstance();
 Console.WriteLine(Factory.SimpleFactory.Create("薯條").Name);
@@ -208,3 +209,12 @@ Console.WriteLine(projectile1.getName());
 Console.WriteLine(projectile2.getName());
 Console.WriteLine(projectile3.getName());
 Console.WriteLine(projectile4.getName());
+
+Visitor.Car car =new Visitor.Car();
+Visitor.Bike bike = new Visitor.Bike();
+Visitor.MoveableGroup moveables = new MoveableGroup();
+moveables.add(car);
+moveables.add(bike);
+
+Visitor.VisitorMove visitorMove = new VisitorMove();
+moveables.displayAll(visitorMove);
