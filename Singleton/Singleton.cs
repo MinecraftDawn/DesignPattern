@@ -1,25 +1,33 @@
-﻿namespace Singleton {
-    class SingletonGreed {
+﻿namespace DesignPattern.Singleton
+{
+    class SingletonGreed
+    {
         private static SingletonGreed instance = new SingletonGreed();
 
-        private SingletonGreed() {
+        private SingletonGreed()
+        {
             Console.WriteLine("SingletonGreed");
         }
 
-        public static SingletonGreed getInstance() {
+        public static SingletonGreed getInstance()
+        {
             return instance;
         }
     }
 
-    class SingletonLazy {
+    class SingletonLazy
+    {
         private static SingletonLazy instance = null;
 
-        private SingletonLazy() {
+        private SingletonLazy()
+        {
             Console.WriteLine("SingletonLazy");
         }
 
-        public static SingletonLazy getInstance() {
-            if (instance == null) {
+        public static SingletonLazy getInstance()
+        {
+            if (instance == null)
+            {
                 instance = new SingletonLazy();
             }
 
@@ -27,18 +35,24 @@
         }
     }
 
-    class SignletonLazySafe {
+    class SignletonLazySafe
+    {
         private static SignletonLazySafe instance = null;
         private static readonly object instanceLock = new object();
 
-        private SignletonLazySafe() {
+        private SignletonLazySafe()
+        {
             Console.WriteLine("SignletonLazySafe");
         }
 
-        public static SignletonLazySafe getInstance() {
-            if (instance == null) {
-                lock (instanceLock) {
-                    if (instance == null) {
+        public static SignletonLazySafe getInstance()
+        {
+            if (instance == null)
+            {
+                lock (instanceLock)
+                {
+                    if (instance == null)
+                    {
                         instance = new SignletonLazySafe();
                     }
                 }

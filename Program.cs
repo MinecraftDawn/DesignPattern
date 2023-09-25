@@ -1,5 +1,4 @@
 ﻿using System;
-using Singleton;
 using Strategy;
 using Decorator;
 using Command;
@@ -18,8 +17,9 @@ using Prototype;
 using Bridge;
 using Memento;
 using DesignPattern.Factory;
+using DesignPattern.Singleton;
 
-Singleton.SignletonLazySafe.getInstance();
+SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
 Console.WriteLine((new Factory.FireChickenFactory()).Create().Name);
 List<Strategy.Item> items  = new List<Strategy.Item>();
