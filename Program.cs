@@ -1,5 +1,4 @@
 ﻿using System;
-using Strategy;
 using Decorator;
 using Command;
 using Adapter;
@@ -18,18 +17,19 @@ using Bridge;
 using Memento;
 using DesignPattern.Factory;
 using DesignPattern.Singleton;
+using DesignPattern.Strategy;
 
 SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
 Console.WriteLine((new Factory.FireChickenFactory()).Create().Name);
-List<Strategy.Item> items  = new List<Strategy.Item>();
+List<Item> items  = new List<Item>();
 items.Add(new Strategy.Item(0, "A"));
 items.Add(new Strategy.Item(2, "C"));
 items.Add(new Strategy.Item(1, "B"));
 
 
 items.Sort((new Strategy.SortByName()));
-foreach (Strategy.Item item in items) {
+foreach (Item item in items) {
     Console.WriteLine(item.Name);
 }
 
