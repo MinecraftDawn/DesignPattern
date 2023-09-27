@@ -1,5 +1,4 @@
 ﻿using System;
-using Decorator;
 using Command;
 using Adapter;
 using Facade;
@@ -18,26 +17,27 @@ using Memento;
 using DesignPattern.Factory;
 using DesignPattern.Singleton;
 using DesignPattern.Strategy;
+using DesignPattern.Decorator;
 
 SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
-Console.WriteLine((new Factory.FireChickenFactory()).Create().Name);
+Console.WriteLine((new DesignPattern.Factory.FireChickenFactory()).Create().Name);
 List<Item> items  = new List<Item>();
-items.Add(new Strategy.Item(0, "A"));
-items.Add(new Strategy.Item(2, "C"));
-items.Add(new Strategy.Item(1, "B"));
+items.Add(new DesignPattern.Strategy.Item(0, "A"));
+items.Add(new DesignPattern.Strategy.Item(2, "C"));
+items.Add(new DesignPattern.Strategy.Item(1, "B"));
 
 
-items.Sort((new Strategy.SortByName()));
+items.Sort((new DesignPattern.Strategy.SortByName()));
 foreach (Item item in items) {
     Console.WriteLine(item.Name);
 }
 
-Decorator.ClearIce ice = new Decorator.ClearIce();
+ClearIce ice = new DesignPattern.Decorator.ClearIce();
 Console.WriteLine(ice.getDescription());
-Decorator.Chocolate chocolate = new Decorator.Chocolate(ice);
+Chocolate chocolate = new DesignPattern.Decorator.Chocolate(ice);
 Console.WriteLine(chocolate.getDescription());
-Decorator.Mango mango = new Decorator.Mango(chocolate);
+Mango mango = new DesignPattern.Decorator.Mango(chocolate);
 Console.WriteLine(mango.getDescription());
 
 
