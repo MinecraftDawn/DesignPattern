@@ -18,6 +18,7 @@ using DesignPattern.Factory;
 using DesignPattern.Singleton;
 using DesignPattern.Strategy;
 using DesignPattern.Decorator;
+using DesignPattern.Observer;
 
 SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
@@ -41,9 +42,9 @@ Mango mango = new DesignPattern.Decorator.Mango(chocolate);
 Console.WriteLine(mango.getDescription());
 
 
-Observer.UI ui = new Observer.UI();
-Observer.Button button = new Observer.Button();
-Observer.Textarea textarea = new Observer.Textarea();
+UI ui = new Observer.UI();
+Button button = new Observer.Button();
+Textarea textarea = new Observer.Textarea();
 
 ui.add(button);
 ui.add(textarea);

@@ -6,13 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Strategy\README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Strategy\README.md" />
-  </ItemGroup>
-
 </Project>
