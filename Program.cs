@@ -1,5 +1,4 @@
 ﻿using System;
-using Command;
 using Adapter;
 using Facade;
 using Template;
@@ -19,6 +18,7 @@ using DesignPattern.Singleton;
 using DesignPattern.Strategy;
 using DesignPattern.Decorator;
 using DesignPattern.Observer;
+using DesignPattern.Command;
 
 SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
@@ -42,9 +42,9 @@ Mango mango = new DesignPattern.Decorator.Mango(chocolate);
 Console.WriteLine(mango.getDescription());
 
 
-UI ui = new Observer.UI();
-Button button = new Observer.Button();
-Textarea textarea = new Observer.Textarea();
+UI ui = new DesignPattern.Observer.UI();
+Button button = new DesignPattern.Observer.Button();
+Textarea textarea = new DesignPattern.Observer.Textarea();
 
 ui.add(button);
 ui.add(textarea);
@@ -52,13 +52,13 @@ ui.add(textarea);
 ui.update();
 
 
-Command.MealReceiver mealReceiver = new Command.MealReceiver();
-Command.DrinkReceiver drinkReceiver = new Command.DrinkReceiver();
+MealReceiver mealReceiver = new DesignPattern.Command.MealReceiver();
+DrinkReceiver drinkReceiver = new DesignPattern.Command.DrinkReceiver();
 
-Command.MealOrder mealOrder = new MealOrder(mealReceiver);
-Command.DrinkOrder drinkOrder = new DrinkOrder(drinkReceiver);
+MealOrder mealOrder = new MealOrder(mealReceiver);
+DrinkOrder drinkOrder = new DrinkOrder(drinkReceiver);
 
-Command.Invoker invoker = new Command.Invoker();
+Invoker invoker = new DesignPattern.Command.Invoker();
 
 invoker.addOrder(mealOrder);
 invoker.addOrder(drinkOrder);
