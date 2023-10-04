@@ -1,5 +1,4 @@
 ﻿using System;
-using Adapter;
 using Facade;
 using Template;
 using Composite;
@@ -19,6 +18,7 @@ using DesignPattern.Strategy;
 using DesignPattern.Decorator;
 using DesignPattern.Observer;
 using DesignPattern.Command;
+using DesignPattern.Adapter;
 
 SignletonLazySafe.getInstance();
 Console.WriteLine(SimpleFactory.Create("薯條").Name);
@@ -66,7 +66,7 @@ invoker.addOrder(drinkOrder);
 invoker.sendAllOrder();
 
 
-Adapter.ElectricCar electricCar = new Adapter.ElectricBike(new Adapter.MyBike());
+ElectricCar electricCar = new Adapter.ElectricBike(new Adapter.MyBike());
 electricCar.powerDriven();
 
 
